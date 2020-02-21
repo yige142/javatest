@@ -1,7 +1,6 @@
 package cn.Test;
 
 import org.junit.Test;
-
 import java.lang.reflect.Array;
 import java.util.TooManyListenersException;
 
