@@ -5,7 +5,7 @@ import java.lang.reflect.Array;
 import java.util.TooManyListenersException;
 
 public class Testdemo1 {
-    //数组反转
+    //反转zhuan数组zu数
     @Test
     public void Reversal(){
         int[] array={1,3,4,6,7,8,9};

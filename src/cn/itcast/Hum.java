@@ -7,7 +7,7 @@ public class Hum {
     public static void main(String[] arags){
 
             Person person=new Person();
-            person.name="地方";
+            person.name="地方发";
             person.show();
     }
 
