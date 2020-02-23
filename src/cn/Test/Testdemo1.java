@@ -1,10 +1,55 @@
 package cn.Test;
 
 import org.junit.Test;
-import java.lang.reflect.Array;
-import java.util.TooManyListenersException;
+
+import java.util.Random;
 
 public class Testdemo1 {
+
+    public static void cc(int a,int b){
+        int c= a+b;
+        System.out.println(c);
+    }
+
+
+    //测试微信红包算法 下===========
+    @Test
+    public  void dd(){ //模拟10个红包数
+        for (int i=1;i<=10;i++){
+            System.out.println(i);
+            getRandomMoney();
+        }
+    }
+    //剩余的红包数量
+    public int remainSize=10 ;
+    //剩余的钱
+    public double remainMoney=5 ;
+
+
+    public  double getRandomMoney() {
+        if (this.remainSize == 1) {
+            this.remainSize--;
+            System.out.println((double) Math.round(this.remainMoney * 100) / 100);
+            return (double) Math.round(this.remainMoney * 100) / 100;
+        }
+        Random r     = new Random();
+        double min   = 0.01; //
+        double max   = this.remainMoney / this.remainSize * 2;
+        double money = r.nextDouble() * max;
+        money = money <= min ? 0.01: money;
+        money = Math.floor(money * 100) / 100;
+        this.remainSize--;
+        this.remainMoney -= money;
+        System.out.println("还剩多少个红包数："+this.remainSize);
+        System.out.println("还有多少余额:"+this.remainMoney);
+        System.out.println("返回 抢到红包Money数:"+money);
+        System.out.println("=============");
+        return money;
+    }
+    //测试微信红包算法  上=====
+
+
+
     //反转zhuan数组zu数
     @Test
     public void Reversal(){
