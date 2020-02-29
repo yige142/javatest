@@ -12,7 +12,7 @@ public class DruidDemo2 {
         //添加一条记录
        try {
            //1.获取连接
-          conn =JDBCutils.getConnection();
+           conn =JDBCutils.getConnection();
            //2.定义SQL
            String sql="insert into c_tt values(null,?,?)";
            //3.获取pstmt对象

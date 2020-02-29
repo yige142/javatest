@@ -24,7 +24,7 @@ public class ResultsetDemo1 {
 
         //获取数据 遍历结果集
         while (rs.next()){
-            int id=rs.getInt(2); //数据下标是2 理解从表头1开始，1算表头行，2才从表格中取数据
+            int id=rs.getInt(1); //collumnindex 根据哪一列取值
             String name=rs.getString("name");
             String text=rs.getString("text");
 
