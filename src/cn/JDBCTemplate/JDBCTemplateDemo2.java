@@ -8,6 +8,7 @@ import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.temporal.ValueRange;
 import java.util.List;
 import java.util.Map;
 
@@ -96,7 +97,30 @@ public class JDBCTemplateDemo2 {
         String sql="select * from c_tt";
         List<Ccc> list=template.query(sql,new BeanPropertyRowMapper<Ccc>(Ccc.class));
         for(Ccc ccc:list){ //ccc 相当于 php foreach (xxx as key=> value) 中的 key  （可以随意重写）
-            System.out.println(ccc);
+          System.out.println(ccc);
+           // System.out.println(ccc.getId());
         }
+
+    }
+
+    //假设接收到前端提交的数据，一个一个赋值到ccc类中后，测试能不能直接获取到CCC类对象的值
+    @Test
+    public void test7(){
+        Ccc ccc=new Ccc();
+        ccc.setName("aaa");
+        ccc.setText("Baa");
+        ccc.setId(333);
+      System.out.println(ccc);
+    }
+
+
+    //测试templt 按参数查找数据，然后返回一个对象
+    @Test
+    public void  test8(){
+        String sql = "SELECT * FROM c_tt WHERE id = ?";
+        int id=2;
+        Ccc ccc=template.queryForObject(sql,new BeanPropertyRowMapper<Ccc>(Ccc.class),id);
+        System.out.println(ccc);
+
     }
 }
