@@ -9,7 +9,6 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class Testdemo1 {
-
     public static void cc(int a,int b){
         int c= a+b;
         System.out.println(c);
